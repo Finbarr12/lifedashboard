@@ -43,7 +43,7 @@ const Settings = () => {
     >
       <HeadHolder>
         <Holder>
-          <Circle></Circle>
+          <Circle>O</Circle>
           <Held>
             <h2>Ogbonna Finbarr</h2>
             <pre>ogbonnfinbarr@gmail.com</pre>
@@ -52,15 +52,7 @@ const Settings = () => {
         {!show ? (
           <Icon size={25} onClick={Toogle} />
         ) : (
-          <AiFillCloseCircle
-            size={28}
-            onClick={Toogle}
-            style={{
-              marginRight: "40px",
-              marginTop: "20px",
-              cursor: "pointer",
-            }}
-          />
+          <Close size={28} onClick={Toogle} />
         )}
       </HeadHolder>
       <Main style={{ marginTop: "50px" }}>
@@ -125,7 +117,7 @@ const Settings = () => {
               <button>Update</button>
             </ButHold>
           </EmailBox>
-          <Icons size={30} onClick={Togglepopup} />
+          <Icons onClick={Togglepopup} />
         </Popup>
       ) : null}
       {nextofkin ? (
@@ -137,7 +129,7 @@ const Settings = () => {
               <button>Update</button>
             </ButHold>
           </EmailBox>
-          <Icons size={30} onClick={kintogg} />
+          <Icons onClick={kintogg} />
         </Popup>
       ) : null}
 
@@ -150,7 +142,7 @@ const Settings = () => {
               <button>Update</button>
             </ButHold>
           </EmailBox>
-          <Icons size={30} onClick={phonetogg} />
+          <Icons onClick={phonetogg} />
         </Popup>
       ) : null}
 
@@ -177,7 +169,7 @@ const Settings = () => {
               <button style={{ marginTop: "5px" }}>Update</button>
             </ButHold>
           </EmailBox>
-          <Icons size={30} onClick={Passtogg} style={{ top: "25%" }} />
+          <Icons onClick={Passtogg} />
         </Popup>
       ) : null}
     </div>
@@ -186,12 +178,30 @@ const Settings = () => {
 
 export default Settings;
 
+const Close = styled(AiFillCloseCircle)`
+  margin-right: 40px;
+  margin-top: 20px;
+  cursor: pointer;
+  @media screen and (max-width: 500px) {
+    margin: 0;
+    margin-top: 27px;
+    margin-right: 13px;
+  }
+`;
+
 const Icons = styled(AiOutlineClose)`
   color: white;
   position: absolute;
   right: 20%;
   top: 30%;
   cursor: pointer;
+  size: 30;
+
+  @media screen and (max-width: 900px) {
+    right: 5%;
+    top: 10%;
+    size: 35;
+  }
 `;
 
 const ButHold = styled.div`
@@ -223,6 +233,10 @@ const EmailBox = styled.div`
   background-color: white;
   padding-left: 20px;
 
+  @media screen and (max-width: 900px) {
+    width: 85%;
+  }
+
   h3 {
     margin: 0;
     margin-top: 50px;
@@ -246,6 +260,10 @@ const Popup = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 const Txth = styled.div`
@@ -277,6 +295,11 @@ const Box = styled.div`
     font-weight: 500;
     transition: all 350ms ease-in-out;
   }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    top: 14%;
+  }
 `;
 
 const Main = styled.div`
@@ -284,6 +307,12 @@ const Main = styled.div`
   /* background-color: red; */
   margin-top: 30px;
   /* margin-left: 20px; */
+
+  @media screen and (max-width: 900px) {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
 `;
 
 const Title = styled.h3`
@@ -300,12 +329,22 @@ const HoldTitle = styled.div`
   align-items: center;
   font-weight: 600;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+  @media screen and (max-width: 500px) {
+    width: 90%;
+  }
 `;
 
 const Icon = styled(AiOutlineMenu)`
   margin-right: 40px;
   margin-top: 20px;
   cursor: pointer;
+
+  @media screen and (max-width: 500px) {
+    margin: 0;
+    margin-top: 27px;
+    margin-right: 13px;
+  }
 `;
 
 const HeadHolder = styled.div`
@@ -321,22 +360,48 @@ const Holder = styled.div`
   margin-left: 20px;
   margin-top: 20px;
   align-items: center;
+
+  @media screen and (max-width: 500px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 const Circle = styled.div`
   width: 75px;
   height: 75px;
-  background-color: silver;
+  /* background-color: silver; */
   border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #8a2be2;
+  font-size: 31px;
+  font-weight: 700;
+
+  @media screen and (max-width: 500px) {
+    width: 44px;
+    height: 44px;
+    font-size: 23px;
+  }
 `;
 const Held = styled.div`
   margin-left: 15px;
+
   h2 {
     margin: 0;
+
+    @media screen and (max-width: 500px) {
+      font-size: 18px;
+    }
   }
   pre {
     margin: 0;
     margin-top: 6px;
     font-size: 16px;
     color: #b3abab;
+
+    @media screen and (max-width: 500px) {
+      font-size: 13px;
+    }
   }
 `;
